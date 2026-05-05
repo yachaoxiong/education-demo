@@ -55,9 +55,8 @@ export default function Footer() {
           <div>
             <h3 className="text-[14px] font-semibold">{copy.contact}</h3>
             <div className="mt-4 space-y-3 text-[13px] text-white/72">
-              <p className="flex items-center gap-2"><Phone className="h-4 w-4" /> (413) 333-4607</p>
+              <p className="flex items-center gap-2"><Phone className="h-4 w-4" /> 705-796-4276</p>
               <p className="flex items-center gap-2"><Mail className="h-4 w-4" /> info@brightpatheducation.ca</p>
-              <p className="flex items-start gap-2"><MapPin className="mt-0.5 h-4 w-4" /> 123 Education Way, Toronto, ON M3M 1M1</p>
             </div>
           </div>
 
