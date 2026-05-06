@@ -94,8 +94,8 @@ export default function Programs() {
             return (
               <article
                 key={program.title.en}
-                className={`group relative overflow-hidden rounded-[20px] border border-slate-100 bg-gradient-to-b ${program.highlight} px-5 py-8 text-left shadow-[0_10px_30px_rgba(20,40,90,0.06)] transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_18px_45px_rgba(20,40,90,0.12)] ${program.ring}`}
-                style={{ animationDelay: `${index * 90}ms` }}
+                className={`animate__animated animate__fadeInUp group relative cursor-pointer overflow-hidden rounded-[20px] border border-slate-100 bg-gradient-to-b ${program.highlight} px-5 py-8 text-left shadow-[0_10px_30px_rgba(20,40,90,0.06)] transition-all duration-300 hover:-translate-y-2 hover:scale-[1.01] hover:shadow-[0_18px_45px_rgba(20,40,90,0.12)] active:scale-[0.99] ${program.ring}`}
+                style={{ animationDelay: `${index * 120}ms` }}
               >
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#274fbb]/10 blur-2xl" />
@@ -109,7 +109,7 @@ export default function Programs() {
                   <ChevronRight className="mt-1 h-4 w-4 text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#274fbb]" />
                 </div>
 
-                <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold text-slate-500 shadow-sm backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-0.5">
+                <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-white/80 px-3 py-1 text-[11px] font-semibold text-slate-500 shadow-sm backdrop-blur-sm transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-[1.02]">
                   <MetaIcon className="h-3.5 w-3.5 text-[#2c61bd]" />
                   {program.meta[language]}
                 </div>
@@ -123,7 +123,7 @@ export default function Programs() {
                   {program.bullets[language].map((bullet) => (
                     <span
                       key={bullet}
-                      className="inline-flex items-center gap-1 rounded-full border border-white/70 bg-white/80 px-3 py-1 text-[11px] font-medium text-slate-600 backdrop-blur-sm transition-all duration-300 group-hover:-translate-y-0.5 group-hover:shadow-sm"
+                      className="inline-flex items-center gap-1 rounded-full border border-white/70 bg-white/80 px-3 py-1 text-[11px] font-medium text-slate-600 backdrop-blur-sm transition-all duration-300 group-hover:-translate-y-0.5 group-hover:scale-[1.02] group-hover:shadow-sm"
                     >
                       <BadgeCheck className="h-3.5 w-3.5 text-[#2c61bd]" />
                       {bullet}
@@ -144,7 +144,7 @@ export default function Programs() {
         <div className="mt-7 text-center">
           <a
             href="#contact"
-            className="inline-flex items-center rounded-full border border-[#cfd8ea] bg-white px-6 py-2.5 text-[13px] font-semibold text-[#2740a1] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-md"
+            className="inline-flex items-center rounded-full border border-[#cfd8ea] bg-white px-6 py-2.5 text-[13px] font-semibold text-[#2740a1] shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:bg-slate-50 hover:shadow-md active:scale-[0.98]"
           >
             {copy.cta}
           </a>

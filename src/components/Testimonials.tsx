@@ -25,7 +25,6 @@ export default function Testimonials() {
   const dragState = useRef({
     isDown: false,
     startX: 0,
-    startScrollLeft: 0,
   });
   const [activeIndex, setActiveIndex] = useState(0);
   const [currentOffset, setCurrentOffset] = useState(middleStart);
@@ -38,12 +37,22 @@ export default function Testimonials() {
   const scrollToIndex = (index: number, smooth = true) => {
     const track = trackRef.current;
     if (!track) return;
+  
     const items = Array.from(track.children) as HTMLElement[];
     const target = items[index];
+  
     if (!target) return;
-    target.scrollIntoView({ behavior: smooth ? "smooth" : "auto", inline: "start", block: "nearest" });
+  
+    track.scrollTo({
+      left: target.offsetLeft,
+      behavior: smooth ? "smooth" : "auto",
+    });
+  
     setCurrentOffset(index);
-    setActiveIndex(((index - middleStart) % total + total) % total);
+  
+    setActiveIndex(
+      ((index - middleStart) % total + total) % total
+    );
   };
 
   const goTo = (index: number) => scrollToIndex(middleStart + ((index % total) + total) % total);
@@ -71,7 +80,7 @@ export default function Testimonials() {
     <section id="testimonials" className="bg-white py-14 lg:py-16">
       <div className="container-site">
         <div className="text-center">
-          <h2 className="font-serif text-[24px] font-semibold tracking-[-0.03em] text-[#1d2d55] sm:text-[28px]">{copy.title}</h2>
+          <h2 className="animate__animated animate__fadeInUp font-serif text-[24px] font-semibold tracking-[-0.03em] text-[#1d2d55] sm:text-[28px]">{copy.title}</h2>
           <div className="mx-auto mt-2 h-0.5 w-10 bg-[#274fbb]" />
         </div>
 
@@ -79,7 +88,10 @@ export default function Testimonials() {
           <div
             ref={trackRef}
             className={`flex gap-4 select-none ${isDragging ? "cursor-grabbing" : "cursor-grab"} ${isTransitioning ? "transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]" : "transition-none"}`}
-            style={{ transform: `translateX(calc(-${currentOffset} * (100% / ${VISIBLE_COUNT}) - ${currentOffset} * 1rem))` }}
+            style={{
+              cursor: isDragging ? "grabbing" : "grab",
+              transform: `translateX(calc(-${currentOffset} * (100% / ${VISIBLE_COUNT}) - ${currentOffset} * 1rem))`,
+            }}
             onTransitionEnd={() => {
               if (currentOffset >= testimonials.length * 2) {
                 setIsTransitioning(false);
@@ -100,7 +112,6 @@ export default function Testimonials() {
               dragState.current = {
                 isDown: true,
                 startX: event.clientX,
-                startScrollLeft: currentOffset,
               };
               setIsDragging(true);
             }}
@@ -128,7 +139,7 @@ export default function Testimonials() {
                 key={`${item.name}-${index}`}
                 className="min-w-0 shrink-0 basis-full md:basis-1/2 lg:basis-1/3"
               >
-                <div className={`h-full rounded-[6px] border border-slate-100 bg-white p-5 shadow-[0_0_0_1px_rgba(30,60,120,0.03)] ${index === currentOffset ? "scale-[1.02] shadow-[0_12px_30px_rgba(39,79,187,0.12)]" : "scale-100"} transition-transform duration-700`}>
+                <div className={`h-full rounded-[6px] border border-slate-100 bg-white p-5 shadow-[0_0_0_1px_rgba(30,60,120,0.03)] ${index === currentOffset ? "scale-[1.02] shadow-[0_12px_30px_rgba(39,79,187,0.12)]" : "scale-100"} transition-all duration-700 hover:-translate-y-1 hover:shadow-[0_16px_35px_rgba(39,79,187,0.14)]`}>
                   <div className="flex gap-1 text-[#f2b632]">
                     {Array.from({ length: 5 }).map((_, starIndex) => <Star key={starIndex} className="h-4 w-4 fill-current" />)}
                   </div>
@@ -155,7 +166,7 @@ export default function Testimonials() {
           <button
             type="button"
             onClick={() => moveBy(-1)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-[#274fbb] hover:text-[#274fbb]"
+            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:border-[#274fbb] hover:text-[#274fbb] active:scale-95"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="h-4 w-4" />
@@ -167,14 +178,14 @@ export default function Testimonials() {
                 type="button"
                 onClick={() => goTo(index)}
                 aria-label={`Go to testimonial ${index + 1}`}
-                className={`h-2.5 rounded-full transition-all ${index === normalizedIndex ? "w-8 bg-[#274fbb]" : "w-2.5 bg-slate-300 hover:bg-slate-400"}`}
+                className={`h-2.5 cursor-pointer rounded-full transition-all ${index === normalizedIndex ? "w-8 bg-[#274fbb]" : "w-2.5 bg-slate-300 hover:bg-slate-400"}`}
               />
             ))}
           </div>
           <button
             type="button"
             onClick={() => moveBy(1)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition hover:border-[#274fbb] hover:text-[#274fbb]"
+            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-all duration-300 hover:-translate-y-0.5 hover:scale-110 hover:border-[#274fbb] hover:text-[#274fbb] active:scale-95"
             aria-label="Next testimonial"
           >
             <ChevronRight className="h-4 w-4" />

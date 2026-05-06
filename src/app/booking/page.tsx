@@ -3,6 +3,7 @@
 import { CalendarDays, Clock3, Mail, Send, Sparkles, User, Phone } from "lucide-react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getCopy } from "@/components/siteCopy";
 
@@ -14,8 +15,7 @@ export default function BookingPage() {
     <main className="min-h-screen bg-white">
       <Navbar />
 
-      <section className="relative w-full overflow-hidden bg-slate-950">
-        <div className="absolute inset-0">
+      <section className="relative h-[420px] w-full overflow-hidden bg-slate-950 lg:h-[480px]">
           <Image
             src="/bookingBg.png"
             alt="Booking consultation banner"
@@ -24,10 +24,7 @@ export default function BookingPage() {
             className="object-cover object-center bg-white"
             sizes="100vw"
           />
-        </div>
-
-        <div className="relative h-[28vw] min-h-[300px] w-full max-h-[480px]" />
-      </section>
+        </section>
 
       <section className="bg-white">
         <div className="container-site -mt-16 pb-12 pt-8 lg:-mt-20 lg:pb-16 lg:pt-10">
@@ -111,6 +108,8 @@ export default function BookingPage() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </main>
   );
 }

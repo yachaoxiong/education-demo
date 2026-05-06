@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import { useLanguage } from "@/components/LanguageProvider";
 import { getCopy } from "@/components/siteCopy";
@@ -10,8 +10,17 @@ export default function Footer() {
   const copy = getCopy(language).footer;
 
   return (
-    <footer id="contact" className="bg-[#132e63] text-white">
-      <div className="container-site py-10 lg:py-12">
+    <footer id="contact" className="relative isolate overflow-visible bg-[var(--foreground)] text-white pt-[122px] min-h-[420px]">
+      <div className="pointer-events-none absolute left-0 top-0 z-[1] w-full overflow-visible leading-none" aria-hidden="true">
+        <svg viewBox="0 0 1440 220" className="block h-[138px] w-full -translate-y-px" preserveAspectRatio="none">
+          <path
+            fill="#ffffff"
+            d="M0,110C72,56,144,34,216,40C288,46,360,90,432,102C504,114,576,102,648,82C720,62,792,32,864,42C936,52,1008,104,1080,116C1152,128,1224,102,1296,72C1368,42,1416,28,1440,24V0H0Z"
+          />
+        </svg>
+      </div>
+      <div className="absolute inset-0 z-[0] bg-[linear-gradient(180deg,rgba(255,255,255,0.08)_0%,rgba(255,255,255,0)_34%)]" />
+      <div className="relative z-10 container-site py-14 lg:py-18">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.7fr_0.7fr_1fr_1.1fr]">
           <div>
             <div className="flex items-center gap-2">
@@ -34,10 +43,10 @@ export default function Footer() {
           <div>
             <h3 className="text-[14px] font-semibold">{copy.nav}</h3>
             <ul className="mt-4 space-y-3 text-[13px] text-white/72">
-              <li><Link href="/#top">About Us</Link></li>
-              <li><Link href="/#programs">Programs</Link></li>
-              <li><Link href="/booking">Booking</Link></li>
-              <li><Link href="/booking">Contact</Link></li>
+              <li><Link className="cursor-pointer transition hover:text-white" href="/about">About Us</Link></li>
+              <li><Link className="cursor-pointer transition hover:text-white" href="/#programs">Programs</Link></li>
+              <li><Link className="cursor-pointer transition hover:text-white" href="/booking">Booking</Link></li>
+              <li><Link className="cursor-pointer transition hover:text-white" href="/booking">Contact</Link></li>
             </ul>
           </div>
 
@@ -66,7 +75,7 @@ export default function Footer() {
             <div className="mt-4 flex gap-2">
               <input className="h-10 flex-1 rounded-md border border-white/15 bg-white px-3 text-[#12316d] outline-none placeholder:text-slate-400" placeholder={copy.email} />
             </div>
-            <button className="mt-3 rounded-md bg-[#2058c8] px-4 py-2.5 text-[13px] font-semibold text-white">
+            <button className="mt-3 cursor-pointer rounded-md bg-[#2058c8] px-4 py-2.5 text-[13px] font-semibold text-white">
               {copy.subscribeButton}
             </button>
           </div>

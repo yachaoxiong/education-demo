@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "animate.css";
 
 :root {
   --background: #ffffff;
@@ -21,6 +22,10 @@ body {
   color: var(--foreground);
   font-family: Inter, Arial, sans-serif;
   overflow-anchor: none;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {

@@ -33,6 +33,40 @@ export const copy = {
     why: {
       eyebrow: "Why Choose Us",
       title: "Why Choose Us",
+      intro:
+        "A more focused, more supportive learning experience designed to help every student build confidence and achieve measurable progress.",
+      items: [
+        {
+          title: "Experienced Teachers",
+          subtitle: "经验丰富的教师",
+          description: "Our teachers are passionate educators with proven teaching experience.",
+          cta: "Learn more",
+        },
+        {
+          title: "Personalized Approach",
+          subtitle: "个性化方案",
+          description: "We tailor learning plans to each student's strengths and goals.",
+          cta: "Learn more",
+        },
+        {
+          title: "Proven Results",
+          subtitle: "成果可靠",
+          description: "Students achieve higher grades and get into top universities.",
+          cta: "Learn more",
+        },
+        {
+          title: "Supportive Environment",
+          subtitle: "支持性环境",
+          description: "Small class sizes and caring support help students thrive.",
+          cta: "Learn more",
+        },
+        {
+          title: "Comprehensive Programs",
+          subtitle: "全面课程体系",
+          description: "A wide range of programs from academics to test prep.",
+          cta: "Learn more",
+        },
+      ],
     },
     testimonials: {
       eyebrow: "Testimonials",
@@ -121,8 +155,42 @@ export const copy = {
       cta: "查看全部课程",
     },
     why: {
-      eyebrow: "为什么选择我们",
-      title: "为什么选择我们",
+      eyebrow: "选择我们的理由",
+      title: "Why Choose Us",
+      intro:
+        "我们打造更专注、更有支持性的学习体验，帮助每位学生建立自信并取得可衡量的进步。",
+      items: [
+        {
+          title: "资深教师",
+          subtitle: "经验丰富的教学团队",
+          description: "我们的教师团队热爱教育，拥有扎实的教学经验。",
+          cta: "了解更多",
+        },
+        {
+          title: "个性化教学",
+          subtitle: "个性化学习方案",
+          description: "我们会根据每位学生的优势与目标定制学习计划。",
+          cta: "了解更多",
+        },
+        {
+          title: "成果可靠",
+          subtitle: "可验证的学习成果",
+          description: "帮助学生提升成绩，并进入理想的高等学府。",
+          cta: "了解更多",
+        },
+        {
+          title: "支持性环境",
+          subtitle: "温暖且高支持的学习环境",
+          description: "小班教学与细致支持，帮助学生更好地成长。",
+          cta: "了解更多",
+        },
+        {
+          title: "课程体系完善",
+          subtitle: "覆盖广泛的课程体系",
+          description: "从学科提升到考试准备，提供全面课程支持。",
+          cta: "了解更多",
+        },
+      ],
     },
     testimonials: {
       eyebrow: "真实评价",

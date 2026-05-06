@@ -10,20 +10,49 @@ type LanguageContextValue = {
   toggleLanguage: () => void;
 };
 
+const LANGUAGE_STORAGE_KEY = "brightpath-language";
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
+function readLanguage(): Language {
+  if (typeof window === "undefined") {
+    return "en";
+  }
+
+  const saved = window.localStorage.getItem(LANGUAGE_STORAGE_KEY);
+  return saved === "zh" ? "zh" : "en";
+}
+
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("en");
+  const [language, setLanguageState] = useState<Language>(readLanguage);
 
   useEffect(() => {
-    const saved = window.localStorage.getItem("brightpath-language");
-    if (saved === "en" || saved === "zh") setLanguageState(saved);
+    document.documentElement.lang = language === "zh" ? "zh-CN" : "en";
+  }, [language]);
+
+  useEffect(() => {
+    const onStorage = (event: StorageEvent) => {
+      if (event.key === LANGUAGE_STORAGE_KEY) {
+        setLanguageState(readLanguage());
+      }
+    };
+
+    const onLanguageChange = () => {
+      setLanguageState(readLanguage());
+    };
+
+    window.addEventListener("storage", onStorage);
+    window.addEventListener("languagechange", onLanguageChange);
+
+    return () => {
+      window.removeEventListener("storage", onStorage);
+      window.removeEventListener("languagechange", onLanguageChange);
+    };
   }, []);
 
   const setLanguage = (next: Language) => {
+    window.localStorage.setItem(LANGUAGE_STORAGE_KEY, next);
     setLanguageState(next);
-    window.localStorage.setItem("brightpath-language", next);
-    document.documentElement.lang = next === "zh" ? "zh-CN" : "en";
+    window.dispatchEvent(new Event("languagechange"));
   };
 
   const toggleLanguage = () => setLanguage(language === "en" ? "zh" : "en");

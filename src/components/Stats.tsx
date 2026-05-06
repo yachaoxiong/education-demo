@@ -13,12 +13,12 @@ export default function Stats() {
   return (
     <section className="pb-10 pt-6">
       <div className="container-site">
-        <div className="grid gap-6 border-t border-slate-100 pt-8 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="animate__animated animate__fadeInUp grid gap-6 border-t border-slate-100 pt-8 sm:grid-cols-2 xl:grid-cols-4">
           {stats.map((stat, index) => {
             const Icon = icons[index];
             return (
-              <div key={stat.title} className="flex items-center gap-3 text-center sm:text-left">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#dfe7f4] text-[#2b5db6]">
+              <div key={stat.title} className="group flex items-center gap-3 text-center transition-transform duration-300 hover:-translate-y-0.5 hover:scale-[1.01] sm:text-left">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#dfe7f4] text-[#2b5db6] transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3 group-active:scale-95">
                   <Icon className="h-5 w-5" />
                 </div>
                 <div>
