@@ -24,10 +24,13 @@ export default function Hero() {
         >
           <source src="/tu.mp4" type="video/mp4" />
         </video>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#071a3a]/72 via-[#0d2a5a]/18 via-45% to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-b from-transparent via-[#f6f9ff]/55 to-[#ffffff]" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-[radial-gradient(ellipse_at_center_bottom,rgba(255,255,255,0.32),transparent_72%)]" />
       </div>
 
       <div className="relative container-site">
-        <div className="grid min-h-[calc(100svh-76px)] items-center py-10 lg:min-h-[calc(100svh-600px)] lg:grid-cols-[0.92fr_1.08fr] lg:py-12">
+        <div className="grid min-h-[calc(100svh-76px)] items-center py-10 lg:min-h-[calc(100svh-550px)] lg:grid-cols-[0.92fr_1.08fr] lg:py-12">
           <div className="max-w-[560px] pt-6 lg:pt-0">
             <div className="animate__animated animate__fadeInDown animate__faster inline-flex rounded-full bg-[#eef4ff]/95 px-3 py-1 text-[12px] font-medium text-[#3c63ab] backdrop-blur-sm transition-transform duration-300 hover:-translate-y-0.5 hover:scale-[1.03] active:scale-[0.98]">
               {copy.badge}
