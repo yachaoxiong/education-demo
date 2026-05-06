@@ -109,7 +109,7 @@ export default function Navbar() {
               aria-expanded={languageMenuOpen}
             >
               <Languages className="h-4 w-4 text-[#1f56c7] dark:text-[#8fb1ff]" />
-              <span>{languageOptions.find((option) => option.key === language)?.shortLabel}</span>
+              <span>{languageOptions.find((option) => option.key === language)?.label}</span>
               <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${languageMenuOpen ? "rotate-180" : ""}`} />
             </button>
 
@@ -183,7 +183,7 @@ export default function Navbar() {
                 aria-expanded={languageMenuOpen}
               >
                 <Languages className="h-4 w-4 text-[#1f56c7] dark:text-[#8fb1ff]" />
-                <span>{languageOptions.find((option) => option.key === language)?.shortLabel}</span>
+                <span>{languageOptions.find((option) => option.key === language)?.label}</span>
                 <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-200 ${languageMenuOpen ? "rotate-180" : ""}`} />
               </button>
 
